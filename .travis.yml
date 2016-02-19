@@ -1,8 +1,10 @@
-language: c
-addons:
-  apt:
-    packages:
-    - emacs23-nox
+language: generic
+sudo: required
+dist: trusty
+before_install:
+  - sudo apt-get -qq update
+  - sudo apt-get install -y emacs24-nox
+  - sudo apt-get install -y proofgeneral
 script: make
 after_success: "./push.sh"
 notifications:
