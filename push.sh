@@ -24,7 +24,7 @@ cp ../$REPO/*.{html,jpg,png,gif} ./
 set -e
 # Add and commit changes.
 git add -A .
-git commit -m "[ci skip] Autodoc commit for $COMMIT."
+git commit -m "Update $(date '+%m/%d/%y %H:%M')"
 if [ "$1" != "dry" ]; then
     git push -q origin gh-pages
 fi
