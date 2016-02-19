@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <title>Index</title>
-<!-- 2016-02-19 Fri 21:39 -->
+<!-- 2016-02-19 Fri 21:45 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <meta  name="author" content="Test" />
@@ -300,32 +300,32 @@ From Software Foundation, used to keep track of the ongoing case
 
 <div class="org-src-container">
 
-<pre class="src src-coq">Require String. Open Scope string_scope.
+<pre class="src src-coq"><span style="font-weight: bold;">Require</span> String. <span style="font-weight: bold;">Open Scope</span> string_scope.
 
-Ltac move_to_top x :=
-match reverse goal with
-| H : _ | - _ =&gt; try move x after H |
-end.
+<span style="font-weight: bold;">Ltac</span> <span style="font-weight: bold;">move_to_top</span> x :=
+<span style="font-weight: bold; text-decoration: underline;">match</span> reverse goal <span style="font-weight: bold; text-decoration: underline;">with</span>
+| H : _ | - _ =&gt; try <span style="text-decoration: underline;">move</span> x <span style="font-weight: bold; text-decoration: underline;">after</span> H |
+<span style="font-weight: bold; text-decoration: underline;">end</span>.
 
-Tactic Notation "assert_eq" ident(x) constr(v) :=
-let H := fresh in
-assert (x = v) as H by reflexivity;
-clear H.
+<span style="font-weight: bold;">Tactic Notation</span> <span style="font-style: italic;">"assert_eq"</span> ident(x) constr(v) :=
+<span style="font-weight: bold; text-decoration: underline;">let</span> H := fresh <span style="font-weight: bold; text-decoration: underline;">in</span>
+<span style="text-decoration: underline;">assert</span> (x = v) <span style="font-weight: bold; text-decoration: underline;">as</span> H by reflexivity;
+<span style="text-decoration: underline;">clear</span> H.
 
-Tactic Notation "Case_aux" ident(x) constr(name) :=
+<span style="font-weight: bold;">Tactic Notation</span> <span style="font-style: italic;">"Case_aux"</span> ident(x) constr(name) :=
 first [
-set (x := name); move_to_top x
+<span style="text-decoration: underline;">set</span> (x := name); move_to_top x
 | assert_eq x name; move_to_top x
-| fail 1 "because we are working on a different case" ].
+| fail 1 <span style="font-style: italic;">"because we are working on a different case"</span> ].
 
-Tactic Notation "Case" constr(name) := Case_aux Case name.
-Tactic Notation "SCase" constr(name) := Case_aux SCase name.
-Tactic Notation "SSCase" constr(name) := Case_aux SSCase name.
-Tactic Notation "SSSCase" constr(name) := Case_aux SSSCase name.
-Tactic Notation "SSSSCase" constr(name) := Case_aux SSSSCase name.
-Tactic Notation "SSSSSCase" constr(name) := Case_aux SSSSSCase name.
-Tactic Notation "SSSSSSCase" constr(name) := Case_aux SSSSSSCase name.
-Tactic Notation "SSSSSSSCase" constr(name) := Case_aux SSSSSSSCase name.
+<span style="font-weight: bold;">Tactic Notation</span> <span style="font-style: italic;">"Case"</span> constr(name) := Case_aux Case name.
+<span style="font-weight: bold;">Tactic Notation</span> <span style="font-style: italic;">"SCase"</span> constr(name) := Case_aux SCase name.
+<span style="font-weight: bold;">Tactic Notation</span> <span style="font-style: italic;">"SSCase"</span> constr(name) := Case_aux SSCase name.
+<span style="font-weight: bold;">Tactic Notation</span> <span style="font-style: italic;">"SSSCase"</span> constr(name) := Case_aux SSSCase name.
+<span style="font-weight: bold;">Tactic Notation</span> <span style="font-style: italic;">"SSSSCase"</span> constr(name) := Case_aux SSSSCase name.
+<span style="font-weight: bold;">Tactic Notation</span> <span style="font-style: italic;">"SSSSSCase"</span> constr(name) := Case_aux SSSSSCase name.
+<span style="font-weight: bold;">Tactic Notation</span> <span style="font-style: italic;">"SSSSSSCase"</span> constr(name) := Case_aux SSSSSSCase name.
+<span style="font-weight: bold;">Tactic Notation</span> <span style="font-style: italic;">"SSSSSSSCase"</span> constr(name) := Case_aux SSSSSSSCase name.
 </pre>
 </div>
 </div>
@@ -344,7 +344,7 @@ We can declare them at define time by putting curly brackets around the argument
 
 <div class="org-src-container">
 
-<pre class="src src-coq">Inductive list {A : Type} : Type :=
+<pre class="src src-coq"><span style="font-weight: bold;">Inductive</span> <span style="font-weight: bold;">list</span> {<span style="font-weight: bold; font-style: italic;">A</span> : <span style="font-weight: bold; text-decoration: underline;">Type</span>} : <span style="font-weight: bold; text-decoration: underline;">Type</span> :=
  | nil : list
  | cons : A -&gt; list -&gt; list.
 </pre>
@@ -361,7 +361,7 @@ Use an @ to disable implicit arguments locally.
 
 <div class="org-src-container">
 
-<pre class="src src-coq">Definition l : @list nat := ... .
+<pre class="src src-coq"><span style="font-weight: bold;">Definition</span> <span style="font-weight: bold;">l</span> : @list nat := ... .
 </pre>
 </div>
 </div>
@@ -399,7 +399,7 @@ One can use different tactics to move hypotheses from the context to the goal.
 
 <div class="org-src-container">
 
-<pre class="src src-coq">revert EQ
+<pre class="src src-coq"><span style="text-decoration: underline;">revert</span> EQ
 
 a, b : A
 ---------
@@ -411,7 +411,7 @@ OR
 </p>
 <div class="org-src-container">
 
-<pre class="src src-coq">generalize EQ
+<pre class="src src-coq"><span style="text-decoration: underline;">generalize</span> EQ
 
 a, b : A
 EQ : a = b
@@ -430,12 +430,12 @@ We can also generalize terms of type in Type.
 
 <div class="org-src-container">
 
-<pre class="src src-coq">generalize a
+<pre class="src src-coq"><span style="text-decoration: underline;">generalize</span> a
 
 a, b : A
 EQ : a = b
 ---------
-forall a0: A, b = a0
+<span style="font-weight: bold; text-decoration: underline;">forall</span> <span style="font-weight: bold; font-style: italic;">a0</span>: A, b = a0
 </pre>
 </div>
 
@@ -446,11 +446,11 @@ This situation is solved using generalize dependent.
 
 <div class="org-src-container">
 
-<pre class="src src-coq">generalize dependent a
+<pre class="src src-coq"><span style="text-decoration: underline;">generalize dependent</span> a
 
 b : A
 ---------
-forall a : A, a = b -&gt; b = a
+<span style="font-weight: bold; text-decoration: underline;">forall</span> <span style="font-weight: bold; font-style: italic;">a</span> : A, a = b -&gt; b = a
 </pre>
 </div>
 </div>
@@ -464,9 +464,9 @@ forall a : A, a = b -&gt; b = a
 <div class="outline-text-3" id="text-7-1">
 <div class="org-src-container">
 
-<pre class="src src-coq">Ltac dup H :=
-let H' := fresh "H" in
-remember H as H'; clear HeqH'.
+<pre class="src src-coq"><span style="font-weight: bold;">Ltac</span> <span style="font-weight: bold;">dup</span> H :=
+<span style="font-weight: bold; text-decoration: underline;">let</span> H' := fresh <span style="font-style: italic;">"H"</span> <span style="font-weight: bold; text-decoration: underline;">in</span>
+remember H <span style="font-weight: bold; text-decoration: underline;">as</span> H'; <span style="text-decoration: underline;">clear</span> HeqH'.
 </pre>
 </div>
 </div>
@@ -476,9 +476,9 @@ remember H as H'; clear HeqH'.
 <div class="outline-text-3" id="text-7-2">
 <div class="org-src-container">
 
-<pre class="src src-coq">Ltac dup H :=
-let H' := fresh "H" in
-generalize dependent H; intros H'.
+<pre class="src src-coq"><span style="font-weight: bold;">Ltac</span> <span style="font-weight: bold;">dup</span> H :=
+<span style="font-weight: bold; text-decoration: underline;">let</span> H' := fresh <span style="font-style: italic;">"H"</span> <span style="font-weight: bold; text-decoration: underline;">in</span>
+<span style="text-decoration: underline;">generalize dependent</span> H; <span style="text-decoration: underline;">intros</span> H'.
 </pre>
 </div>
 </div>
@@ -488,9 +488,9 @@ generalize dependent H; intros H'.
 <div class="outline-text-3" id="text-7-3">
 <div class="org-src-container">
 
-<pre class="src src-coq">Ltac dup H :=
-let n := fresh H in
-assert (n := H)
+<pre class="src src-coq"><span style="font-weight: bold;">Ltac</span> <span style="font-weight: bold;">dup</span> H :=
+<span style="font-weight: bold; text-decoration: underline;">let</span> n := fresh H <span style="font-weight: bold; text-decoration: underline;">in</span>
+<span style="text-decoration: underline;">assert</span> (n := H)
 </pre>
 </div>
 </div>
@@ -512,9 +512,9 @@ Looking for an hypothesis of the form P x y, for any x and y.
 
 <div class="org-src-container">
 
-<pre class="src src-coq">match goal with
-  H : P ?x ?y |- _ =&gt; destruct H; auto
-end.
+<pre class="src src-coq"><span style="font-weight: bold; text-decoration: underline;">match</span> goal <span style="font-weight: bold; text-decoration: underline;">with</span>
+  <span style="font-weight: bold;">H</span> : P ?x ?y |- _ =&gt; <span style="text-decoration: underline;">destruct</span> H; <span style="text-decoration: underline;">auto</span>
+<span style="font-weight: bold; text-decoration: underline;">end</span>.
 </pre>
 </div>
 <p>
@@ -532,15 +532,15 @@ The following example shows how to use hypotheses matching to remove duplicates 
 
 <div class="org-src-container">
 
-<pre class="src src-coq">Goal P x y -&gt; P x y -&gt; P x z -&gt; P x z -&gt; P x z -&gt; P y z.
-Proof.
-  intros.
+<pre class="src src-coq"><span style="font-weight: bold;">Goal</span> <span style="font-weight: bold;">P</span> x y -&gt; P x y -&gt; P x z -&gt; P x z -&gt; P x z -&gt; P y z.
+<span style="font-weight: bold;">Proof</span>.
+  <span style="text-decoration: underline;">intros</span>.
 
-  repeat match goal with
-    H1 : P ?x ?y,
-	H2: P ?x ?y |- _ =&gt; clear H1
-  end.
-Qed.
+  repeat <span style="font-weight: bold; text-decoration: underline;">match</span> goal <span style="font-weight: bold; text-decoration: underline;">with</span>
+    <span style="font-weight: bold;">H1</span> : P ?x ?y,
+        H2: P ?x ?y |- _ =&gt; <span style="text-decoration: underline;">clear</span> H1
+  <span style="font-weight: bold; text-decoration: underline;">end</span>.
+<span style="font-weight: bold;">Qed</span>.
 </pre>
 </div>
 
@@ -556,9 +556,9 @@ Using <code>context</code>:
 </p>
 <div class="org-src-container">
 
-<pre class="src src-coq">match goal with
-  H : context [P ?x ?y] |- _ =&gt; (* do stuff *)
-end.
+<pre class="src src-coq"><span style="font-weight: bold; text-decoration: underline;">match</span> goal <span style="font-weight: bold; text-decoration: underline;">with</span>
+  <span style="font-weight: bold;">H</span> : context [P ?x ?y] |- _ =&gt; <span style="font-weight: bold; font-style: italic;">(*</span><span style="font-weight: bold; font-style: italic;"> do stuff </span><span style="font-weight: bold; font-style: italic;">*)</span>
+<span style="font-weight: bold; text-decoration: underline;">end</span>.
 </pre>
 </div>
 </div>
@@ -571,9 +571,9 @@ The matching can also be made on the conlusion of the goal (after <code>|-</code
 </p>
 <div class="org-src-container">
 
-<pre class="src src-coq">match goal with
-  |- context [P ?x ?y] =&gt; (* do stuff *)
-end.
+<pre class="src src-coq"><span style="font-weight: bold; text-decoration: underline;">match</span> goal <span style="font-weight: bold; text-decoration: underline;">with</span>
+  |- context [P ?x ?y] =&gt; <span style="font-weight: bold; font-style: italic;">(*</span><span style="font-weight: bold; font-style: italic;"> do stuff </span><span style="font-weight: bold; font-style: italic;">*)</span>
+<span style="font-weight: bold; text-decoration: underline;">end</span>.
 </pre>
 </div>
 
@@ -582,10 +582,10 @@ Of course, multiple patterns can be matched.
 </p>
 <div class="org-src-container">
 
-<pre class="src src-coq">repeat match goal with
-  H : context [P ?x ?y] |- _ =&gt; (* do stuff *)
-| |- context [P ?x ?y] =&gt; (* do stuff *)
-end.
+<pre class="src src-coq">repeat <span style="font-weight: bold; text-decoration: underline;">match</span> goal <span style="font-weight: bold; text-decoration: underline;">with</span>
+  <span style="font-weight: bold;">H</span> : context [P ?x ?y] |- _ =&gt; <span style="font-weight: bold; font-style: italic;">(*</span><span style="font-weight: bold; font-style: italic;"> do stuff </span><span style="font-weight: bold; font-style: italic;">*)</span>
+| |- context [P ?x ?y] =&gt; <span style="font-weight: bold; font-style: italic;">(*</span><span style="font-weight: bold; font-style: italic;"> do stuff </span><span style="font-weight: bold; font-style: italic;">*)</span>
+<span style="font-weight: bold; text-decoration: underline;">end</span>.
 </pre>
 </div>
 <p>
@@ -605,14 +605,14 @@ Sometimes we need to generate fresh names inside tactics:
 </p>
 <div class="org-src-container">
 
-<pre class="src src-coq">let n := fresh in (* generate new name, probably H0, H1, H2 *)
-intro n
+<pre class="src src-coq"><span style="font-weight: bold; text-decoration: underline;">let</span> n := fresh <span style="font-weight: bold; text-decoration: underline;">in</span> <span style="font-weight: bold; font-style: italic;">(*</span><span style="font-weight: bold; font-style: italic;"> generate new name, probably H0, H1, H2 </span><span style="font-weight: bold; font-style: italic;">*)</span>
+<span style="text-decoration: underline;">intro</span> n
 
-let n := fresh H in (* generate new name, based on the name of H *)
-intro n
+<span style="font-weight: bold; text-decoration: underline;">let</span> n := fresh H <span style="font-weight: bold; text-decoration: underline;">in</span> <span style="font-weight: bold; font-style: italic;">(*</span><span style="font-weight: bold; font-style: italic;"> generate new name, based on the name of H </span><span style="font-weight: bold; font-style: italic;">*)</span>
+<span style="text-decoration: underline;">intro</span> n
 
-let n := fresh "H" in (* generate new name, based on the given string "H" *)
-intro n
+<span style="font-weight: bold; text-decoration: underline;">let</span> n := fresh <span style="font-style: italic;">"H"</span> <span style="font-weight: bold; text-decoration: underline;">in</span> <span style="font-weight: bold; font-style: italic;">(*</span><span style="font-weight: bold; font-style: italic;"> generate new name, based on the given string "H" </span><span style="font-weight: bold; font-style: italic;">*)</span>
+<span style="text-decoration: underline;">intro</span> n
 </pre>
 </div>
 </div>
@@ -625,10 +625,10 @@ One can view the Ltac code of a tactic (when it's actually written in Ltac).
 </p>
 <div class="org-src-container">
 
-<pre class="src src-coq">Print Ltac inv.
+<pre class="src src-coq"><span style="font-weight: bold;">Print</span> <span style="font-weight: bold;">Ltac</span> <span style="font-weight: bold;">inv</span>.
 
 ---&gt;
-Ltac inv H := inversion H; clear H; subst
+<span style="font-weight: bold;">Ltac</span> <span style="font-weight: bold;">inv</span> H := <span style="text-decoration: underline;">inversion</span> H; <span style="text-decoration: underline;">clear</span> H; <span style="text-decoration: underline;">subst</span>
 </pre>
 </div>
 </div>
@@ -643,14 +643,14 @@ For example, to see the Ltac code of a tactic (see previous section), we can def
 
 <div class="org-src-container">
 
-<pre class="src src-elisp">(defun coq-Print-Ltac (withprintingall)
-  "Ask for a tactic and Print Ltac it."
-  (interactive "P")
-  (if withprintingall
-      (coq-ask-do-show-all "Print Ltac" "Print Ltac")
-    (coq-ask-do "Print Ltac" "Print Ltac")))
+<pre class="src src-elisp">(<span style="font-weight: bold;">defun</span> <span style="font-weight: bold;">coq-Print-Ltac</span> (withprintingall)
+  <span style="font-style: italic;">"Ask for a tactic and Print Ltac it."</span>
+  (interactive <span style="font-style: italic;">"P"</span>)
+  (<span style="font-weight: bold;">if</span> withprintingall
+      (coq-ask-do-show-all <span style="font-style: italic;">"Print Ltac"</span> <span style="font-style: italic;">"Print Ltac"</span>)
+    (coq-ask-do <span style="font-style: italic;">"Print Ltac"</span> <span style="font-style: italic;">"Print Ltac"</span>)))
 
-(global-set-key (kbd "C-c C-$") 'coq-Print-Ltac)
+(global-set-key (kbd <span style="font-style: italic;">"C-c C-$"</span>) 'coq-Print-Ltac)
 </pre>
 </div>
 
@@ -670,7 +670,7 @@ To show what axioms a given lemma depends on, one can use the following vernacul
 
 <div class="org-src-container">
 
-<pre class="src src-coq">Print Assumptions my_lemma.
+<pre class="src src-coq"><span style="font-weight: bold;">Print</span> Assumptions my_lemma.
 </pre>
 </div>
 </div>
@@ -696,11 +696,11 @@ roughly as follows:
 
 <div class="org-src-container">
 
-<pre class="src src-coq">Add Parametric Relation (A: Type): A (@R A)
+<pre class="src src-coq"><span style="font-weight: bold;">Add Parametric Relation</span> (<span style="font-weight: bold; font-style: italic;">A</span>: <span style="font-weight: bold; text-decoration: underline;">Type</span>): A (@R A)
 reflexivity proved by ...
-symmetry proved by ...
-transitivity proved by ...
-as R_is_an_equivalence_relation.
+<span style="text-decoration: underline;">symmetry</span> proved by ...
+<span style="text-decoration: underline;">transitivity</span> proved by ...
+<span style="font-weight: bold; text-decoration: underline;">as</span> R_is_an_equivalence_relation.
 </pre>
 </div>
 
@@ -714,29 +714,29 @@ declare it as so.
 
 <div class="org-src-container">
 
-<pre class="src src-coq">Axiom state: Type.
-Definition Pred: state -&gt; Prop.
-Definition PEq (P1 P2: Pred): Prop := forall x, P1 x &lt;-&gt; P2 x.
-Lemma PEq_reflexive: forall P, P ≡ P.
-Proof.
-  intros P s; go.
-Qed.
+<pre class="src src-coq"><span style="font-weight: bold;">Axiom</span> <span style="font-weight: bold; font-style: italic;">state</span>: <span style="font-weight: bold; text-decoration: underline;">Type</span>.
+<span style="font-weight: bold;">Definition</span> <span style="font-weight: bold;">Pred</span>: state -&gt; <span style="font-weight: bold; text-decoration: underline;">Prop</span>.
+<span style="font-weight: bold;">Definition</span> <span style="font-weight: bold;">PEq</span> (<span style="font-weight: bold; font-style: italic;">P1 P2</span>: Pred): <span style="font-weight: bold; text-decoration: underline;">Prop</span> := <span style="font-weight: bold; text-decoration: underline;">forall</span> <span style="font-weight: bold; font-style: italic;">x</span>, P1 x &lt;-&gt; P2 x.
+<span style="font-weight: bold;">Lemma</span> <span style="font-weight: bold;">PEq_reflexive</span>: <span style="font-weight: bold; text-decoration: underline;">forall</span> <span style="font-weight: bold; font-style: italic;">P</span>, P &#8801; P.
+<span style="font-weight: bold;">Proof</span>.
+  <span style="text-decoration: underline;">intros</span> P s; go.
+<span style="font-weight: bold;">Qed</span>.
 
-Lemma PEq_trans: forall P1 P2 P3 (H1: P1 ≡ P2) (H2: P2 ≡ P3),
-    P1 ≡ P3.
-  intros P1 P2 P3 H1 H2 s; split; intros H3; [apply H2, H1 | apply H1,H2]; assumption.
-Qed.
+<span style="font-weight: bold;">Lemma</span> <span style="font-weight: bold;">PEq_trans</span>: <span style="font-weight: bold; text-decoration: underline;">forall</span> P1 P2 P3 (<span style="font-weight: bold; font-style: italic;">H1</span>: P1 &#8801; P2) (<span style="font-weight: bold; font-style: italic;">H2</span>: P2 &#8801; P3),
+    P1 &#8801; P3.
+  <span style="text-decoration: underline;">intros</span> P1 P2 P3 H1 H2 s; <span style="text-decoration: underline;">split</span>; <span style="text-decoration: underline;">intros</span> H3; [<span style="text-decoration: underline;">apply</span> H2, H1 | <span style="text-decoration: underline;">apply</span> H1,H2]; assumption.
+<span style="font-weight: bold;">Qed</span>.
 
-Lemma PEq_symm: forall P1 P2 (H: P1 ≡ P2), P2 ≡ P1.
-Proof.
-  intros P1 P2 H s; split; intros H'; apply H; assumption.
-Qed.
+<span style="font-weight: bold;">Lemma</span> <span style="font-weight: bold;">PEq_symm</span>: <span style="font-weight: bold; text-decoration: underline;">forall</span> P1 P2 (<span style="font-weight: bold; font-style: italic;">H</span>: P1 &#8801; P2), P2 &#8801; P1.
+<span style="font-weight: bold;">Proof</span>.
+  <span style="text-decoration: underline;">intros</span> P1 P2 H s; <span style="text-decoration: underline;">split</span>; <span style="text-decoration: underline;">intros</span> H'; <span style="text-decoration: underline;">apply</span> H; assumption.
+<span style="font-weight: bold;">Qed</span>.
 
-Add Parametric Relation: Pred PEq
+<span style="font-weight: bold;">Add Parametric Relation</span>: Pred PEq
     reflexivity proved by PEq_reflexive
-    symmetry proved by PEq_symm
-    transitivity proved by PEq_trans
-      as PEq_equiv.
+    <span style="text-decoration: underline;">symmetry</span> proved by PEq_symm
+    <span style="text-decoration: underline;">transitivity</span> proved by PEq_trans
+      <span style="font-weight: bold; text-decoration: underline;">as</span> PEq_equiv.
 </pre>
 </div>
 
@@ -752,22 +752,22 @@ relation is a preorder for instance:
 
 <div class="org-src-container">
 
-<pre class="src src-coq">Definition PWeaker (P1 P2: Pred): Prop := forall s, P2 s -&gt; P1 s.
+<pre class="src src-coq"><span style="font-weight: bold;">Definition</span> <span style="font-weight: bold;">PWeaker</span> (<span style="font-weight: bold; font-style: italic;">P1 P2</span>: Pred): <span style="font-weight: bold; text-decoration: underline;">Prop</span> := <span style="font-weight: bold; text-decoration: underline;">forall</span> <span style="font-weight: bold; font-style: italic;">s</span>, P2 s -&gt; P1 s.
 
-Lemma PWeaker_reflexive: forall P, P ⊆ P.
-Proof.
+<span style="font-weight: bold;">Lemma</span> <span style="font-weight: bold;">PWeaker_reflexive</span>: <span style="font-weight: bold; text-decoration: underline;">forall</span> <span style="font-weight: bold; font-style: italic;">P</span>, P &#8838; P.
+<span style="font-weight: bold;">Proof</span>.
   go.
-Qed.
+<span style="font-weight: bold;">Qed</span>.
 
-Lemma PWeaker_trans: forall P1 P2 P3 (H1: P1 ⊆ P2) (H2: P2 ⊆ P3), P1 ⊆ P3.
-Proof.
-  intros P1 P2 P3 H1 H2 s H3; apply H1,H2,H3.
-Qed.
+<span style="font-weight: bold;">Lemma</span> <span style="font-weight: bold;">PWeaker_trans</span>: <span style="font-weight: bold; text-decoration: underline;">forall</span> P1 P2 P3 (<span style="font-weight: bold; font-style: italic;">H1</span>: P1 &#8838; P2) (<span style="font-weight: bold; font-style: italic;">H2</span>: P2 &#8838; P3), P1 &#8838; P3.
+<span style="font-weight: bold;">Proof</span>.
+  <span style="text-decoration: underline;">intros</span> P1 P2 P3 H1 H2 s H3; <span style="text-decoration: underline;">apply</span> H1,H2,H3.
+<span style="font-weight: bold;">Qed</span>.
 
-Add Parametric Relation: Pred PWeaker
+<span style="font-weight: bold;">Add Parametric Relation</span>: Pred PWeaker
     reflexivity proved by PWeaker_reflexive
-    transitivity proved by PWeaker_trans
-      as PWeaker_preorder.
+    <span style="text-decoration: underline;">transitivity</span> proved by PWeaker_trans
+      <span style="font-weight: bold; text-decoration: underline;">as</span> PWeaker_preorder.
 </pre>
 </div>
 
@@ -787,9 +787,9 @@ have written instead:
 
 <div class="org-src-container">
 
-<pre class="src src-coq">Require Import Classes.RelationClasses.
+<pre class="src src-coq"><span style="font-weight: bold;">Require Import</span> Classes.RelationClasses.
 
-Instance PEq_equiv: @Equivalence Pred PEq :=
+<span style="font-weight: bold;">Instance</span> <span style="font-weight: bold;">PEq_equiv</span>: @Equivalence Pred PEq :=
  Equivalence_Reflexive := PEq_reflexive
  Equivalence_Symmetric := PEq_symm
  Equivalence_Transitive := PEq_trans.
@@ -809,8 +809,8 @@ with typeclasses.  In the case of a binary function, it would look like this:
 
 <div class="org-src-container">
 
-<pre class="src src-coq">Add Parametric Morphism : f with
-   signature (rel ==&gt; rel ==&gt; rel) as foo.
+<pre class="src src-coq"><span style="font-weight: bold;">Add Parametric Morphism</span> : f <span style="font-weight: bold; text-decoration: underline;">with</span>
+<span style="font-weight: bold; text-decoration: underline;">   signature</span> (rel ==&gt; rel ==&gt; rel) <span style="font-weight: bold; text-decoration: underline;">as</span> foo.
 </pre>
 </div>
 
@@ -828,15 +828,15 @@ can actually rewrite any equivalent predicates under it.
 
 <div class="org-src-container">
 
-<pre class="src src-coq">Require Import Setoid.
-Definition PJoin P1 P2: Pred := λ s, P1 s \/ P2 s.
+<pre class="src src-coq"><span style="font-weight: bold;">Require Import</span> Setoid.
+<span style="font-weight: bold;">Definition</span> <span style="font-weight: bold;">PJoin</span> P1 P2: Pred := &#955; s, P1 s \/ P2 s.
 
-Add Parametric Morphism : PJoin with
-   signature (PEq ==&gt; PEq ==&gt; PEq) as foo.
-Proof.
-  intros Q1 Q1' eq1 Q2 Q2' eq2 s; split; intros H;
-    (destruct H; [left; apply eq1; assumption | right; apply eq2; assumption]).
-Qed.
+<span style="font-weight: bold;">Add Parametric Morphism</span> : PJoin <span style="font-weight: bold; text-decoration: underline;">with</span>
+<span style="font-weight: bold; text-decoration: underline;">   signature</span> (PEq ==&gt; PEq ==&gt; PEq) <span style="font-weight: bold; text-decoration: underline;">as</span> foo.
+<span style="font-weight: bold;">Proof</span>.
+  <span style="text-decoration: underline;">intros</span> Q1 Q1' eq1 Q2 Q2' eq2 s; <span style="text-decoration: underline;">split</span>; <span style="text-decoration: underline;">intros</span> H;
+    (<span style="text-decoration: underline;">destruct</span> H; [<span style="text-decoration: underline;">left</span>; <span style="text-decoration: underline;">apply</span> eq1; assumption | <span style="text-decoration: underline;">right</span>; <span style="text-decoration: underline;">apply</span> eq2; assumption]).
+<span style="font-weight: bold;">Qed</span>.
 </pre>
 </div>
 
@@ -871,11 +871,11 @@ the adequate instance. The Typeclass at use here is Proper:
 
 <div class="org-src-container">
 
-<pre class="src src-coq">Instance foo: Proper (PEq ==&gt; PEq ==&gt; PEq) PJoin.
-Proof.
-  intros Q1 Q1' eq1 Q2 Q2' eq2 s; split; intros H;
-    (destruct H; [left; apply eq1; assumption | right; apply eq2; assumption]).
-Qed.
+<pre class="src src-coq"><span style="font-weight: bold;">Instance</span> <span style="font-weight: bold;">foo</span>: Proper (PEq ==&gt; PEq ==&gt; PEq) PJoin.
+<span style="font-weight: bold;">Proof</span>.
+  <span style="text-decoration: underline;">intros</span> Q1 Q1' eq1 Q2 Q2' eq2 s; <span style="text-decoration: underline;">split</span>; <span style="text-decoration: underline;">intros</span> H;
+    (<span style="text-decoration: underline;">destruct</span> H; [<span style="text-decoration: underline;">left</span>; <span style="text-decoration: underline;">apply</span> eq1; assumption | <span style="text-decoration: underline;">right</span>; <span style="text-decoration: underline;">apply</span> eq2; assumption]).
+<span style="font-weight: bold;">Qed</span>.
 </pre>
 </div>
 </div>
@@ -884,7 +884,7 @@ Qed.
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Test</p>
-<p class="date">Created: 2016-02-19 Fri 21:39</p>
+<p class="date">Created: 2016-02-19 Fri 21:45</p>
 <p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 24.3.1 (<a href="http://orgmode.org">Org</a> mode 8.2.4)</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
