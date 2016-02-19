@@ -3,6 +3,7 @@ sudo: required
 dist: trusty
 before_install:
   - sudo apt-get -qq update
+  - sudo apt-get install -y coq
   - sudo apt-get install -y org-mode
   - sudo apt-get install -y proofgeneral
   - sudo apt-get install -y emacs-goodies-el
