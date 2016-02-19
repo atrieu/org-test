@@ -1,9 +1,0 @@
-addons:
-  apt:
-    packages:
-    - emacs23-nox
-script: make
-after_success: "./push.sh"
-env:
-  global:
-    secure: Qu6aEEe2otGO297tU9RXw5pNW3p43vAdIc1fm7A4LYSxJw/6Pc0KfT6YiluH0SP9WHCav0jHFDpvk/YiYgR4tblELin0LfJRtc1LKQB9tfySWmNMyVrms4m3BXezaIM7uPBP1GKXkRXfS829AzJfVm9kSSo0q+DDDLn7mJmB1KoWmd/WkeLHu2B0JbaZos3jvPFnZaYSy85wvz3zIFDrfq7klaNplbmK3whFvRfV7+5nUNQ0pJzWfJNrtSvNANEfec2rHj+kkOZ/jvCBJAVNvehvFkVVC8PmUhBmlqmN6aGacYwArN4BE0B4kUe28iCcOmUyYqBiwZg4J6U2bl03++uVq/P8SWgRuMTFiD2l14Ywn6+FMyzA1ErrDUIDzVGWhjoE9/TAfhwy8UYVOFP+FBikJN3HPm27Y1gKgDPSw0nD680MhcpCMulSRXtZT75GpP/nMc4FPG+oDzQCGGvaDvsNhwAf23CHhcAbok7DjOwOm1jDN2loNeAna/FJuOH/k5dczar9LljIvmrDyAKae4zR6OxG1NvIaZ0+iV5OpsR9Pdsflcs13Z5yff/Gj+IfPTakz3S2itbKMY6eq3/aBe5ecF7wSblieukvxJl4ujBbtbv4Pa+ZI/Q7ckcrYqv6PFOxoqSzTLI8yqRf0X6TvC8edfMyFSrvX9wB2BNjGEY=
