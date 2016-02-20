@@ -37,7 +37,7 @@
 * The Case tactic
   From Software Foundation, used to keep track of the ongoing case
 
-#+BEGIN_SRC coq
+#+BEGIN_SRC coq :exports code
   Require String. Open Scope string_scope.
 
   Ltac move_to_top x :=
