@@ -1,7 +1,6 @@
 #+TITLE: Index
 #+AUTHOR: Test
 #+SETUPFILE: config.setup
-#+HTML_HEAD: <link href="theme.css" rel="stylesheet">
 
 * Computation
 ** Eval
