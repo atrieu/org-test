@@ -9,5 +9,5 @@ all: ~/.emacs $(OBJECTS)
 	echo "(setq org-html-htmlize-font-prefix \"org-\")" >> ~/.emacs
 
 %.html: %.org
-	emacs --batch -q -eval "(require 'org)" -eval "(require 'proof-site)" $< -f org-html-export-to-html --kill
+	emacs --batch -eval "(require 'org)" -eval "(require 'proof-site)" $< -f org-html-export-to-html --kill
 	
