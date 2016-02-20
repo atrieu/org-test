@@ -4,5 +4,5 @@ OBJECTS=$(patsubst %.org,%.html,$(SOURCES))
 all: $(OBJECTS)
 
 %.html: %.org
-	emacs --batch --eval "(require 'org)" $< -f org-html-export-to-html --kill
+	emacs --batch --eval "(require 'org)" --eval "(setq org-src-fontify-natively t)" $< -f org-html-export-to-html --kill
 
