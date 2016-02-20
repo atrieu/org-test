@@ -4,6 +4,7 @@ OBJECTS=$(patsubst %.org,%.html,$(SOURCES))
 all: ~/.emacs.d/init.el $(OBJECTS)
 
 ~/.emacs.d/init.el:
+	mkdir ~/.emacs.d
 	echo "(require 'org)" >> ~/.emacs.d/init.el
 	echo "(require 'ox-html) >> ~/.emacs.d/init.el
 	echo "(setq org-src-fontify-natively t)" >> ~/.emacs.d/init.el
