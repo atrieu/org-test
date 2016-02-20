@@ -10,4 +10,4 @@ all: ~/.emacs $(OBJECTS)
 
 %.html: %.org
 	emacs --batch -eval "(require 'org)" -eval "(require 'proof-site)" $< -f org-html-export-to-html --kill
-	
+	emacs --batch -eval "(require 'org)" -eval "(require 'proof-site)" $< -f org-html-htmlize-generate-css --kill

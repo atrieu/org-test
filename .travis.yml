@@ -14,7 +14,7 @@ after_success:
   - cd gh-pages
   - git config user.name "Travis Worker"
   - git config user.email "travis@travis-ci.org"
-  - cp ../$REPO/*.html ./
+  - cp ../$REPO/*.{html,css} ./
   - git add -A .
   - git commit -m "Update $(date '+%m/%d/%y %H:%M')."
   - git push -q origin gh-pages
