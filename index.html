@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <title>Index</title>
-<!-- 2016-02-20 Sat 21:55 -->
+<!-- 2016-02-20 Sat 22:29 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <meta  name="author" content="Test" />
@@ -160,34 +160,40 @@ From Software Foundation, used to keep track of the ongoing case
 
 <div class="org-src-container">
 
-<pre class="src src-coq"><span style="font-weight: bold;">Require</span> String. <span style="font-weight: bold;">Open Scope</span> string_scope.
+<pre class="src src-perl">print <span style="font-style: italic;">"foo\n"</span>;
+</pre>
+</div>
 
-<span style="font-weight: bold;">Inductive</span> <span style="font-weight: bold;">foo</span>: <span style="font-weight: bold; text-decoration: underline;">Prop</span> :=.
+<div class="org-src-container">
 
-<span style="font-weight: bold;">Ltac</span> <span style="font-weight: bold;">move_to_top</span> x :=
-<span style="font-weight: bold; text-decoration: underline;">match</span> reverse goal <span style="font-weight: bold; text-decoration: underline;">with</span>
-| H : _ | - _ =&gt; try <span style="text-decoration: underline;">move</span> x <span style="font-weight: bold; text-decoration: underline;">after</span> H |
-<span style="font-weight: bold; text-decoration: underline;">end</span>.
+<pre class="src src-coq">Require String. Open Scope string_scope.
 
-<span style="font-weight: bold;">Tactic Notation</span> <span style="font-style: italic;">"assert_eq"</span> ident(x) constr(v) :=
-<span style="font-weight: bold; text-decoration: underline;">let</span> H := fresh <span style="font-weight: bold; text-decoration: underline;">in</span>
-<span style="text-decoration: underline;">assert</span> (x = v) <span style="font-weight: bold; text-decoration: underline;">as</span> H by reflexivity;
-<span style="text-decoration: underline;">clear</span> H.
+Inductive foo: Prop :=.
 
-<span style="font-weight: bold;">Tactic Notation</span> <span style="font-style: italic;">"Case_aux"</span> ident(x) constr(name) :=
+Ltac move_to_top x :=
+match reverse goal with
+| H : _ | - _ =&gt; try move x after H |
+end.
+
+Tactic Notation "assert_eq" ident(x) constr(v) :=
+let H := fresh in
+assert (x = v) as H by reflexivity;
+clear H.
+
+Tactic Notation "Case_aux" ident(x) constr(name) :=
 first [
-<span style="text-decoration: underline;">set</span> (x := name); move_to_top x
+set (x := name); move_to_top x
 | assert_eq x name; move_to_top x
-| fail 1 <span style="font-style: italic;">"because we are working on a different case"</span> ].
+| fail 1 "because we are working on a different case" ].
 
-<span style="font-weight: bold;">Tactic Notation</span> <span style="font-style: italic;">"Case"</span> constr(name) := Case_aux Case name.
-<span style="font-weight: bold;">Tactic Notation</span> <span style="font-style: italic;">"SCase"</span> constr(name) := Case_aux SCase name.
-<span style="font-weight: bold;">Tactic Notation</span> <span style="font-style: italic;">"SSCase"</span> constr(name) := Case_aux SSCase name.
-<span style="font-weight: bold;">Tactic Notation</span> <span style="font-style: italic;">"SSSCase"</span> constr(name) := Case_aux SSSCase name.
-<span style="font-weight: bold;">Tactic Notation</span> <span style="font-style: italic;">"SSSSCase"</span> constr(name) := Case_aux SSSSCase name.
-<span style="font-weight: bold;">Tactic Notation</span> <span style="font-style: italic;">"SSSSSCase"</span> constr(name) := Case_aux SSSSSCase name.
-<span style="font-weight: bold;">Tactic Notation</span> <span style="font-style: italic;">"SSSSSSCase"</span> constr(name) := Case_aux SSSSSSCase name.
-<span style="font-weight: bold;">Tactic Notation</span> <span style="font-style: italic;">"SSSSSSSCase"</span> constr(name) := Case_aux SSSSSSSCase name.
+Tactic Notation "Case" constr(name) := Case_aux Case name.
+Tactic Notation "SCase" constr(name) := Case_aux SCase name.
+Tactic Notation "SSCase" constr(name) := Case_aux SSCase name.
+Tactic Notation "SSSCase" constr(name) := Case_aux SSSCase name.
+Tactic Notation "SSSSCase" constr(name) := Case_aux SSSSCase name.
+Tactic Notation "SSSSSCase" constr(name) := Case_aux SSSSSCase name.
+Tactic Notation "SSSSSSCase" constr(name) := Case_aux SSSSSSCase name.
+Tactic Notation "SSSSSSSCase" constr(name) := Case_aux SSSSSSSCase name.
 </pre>
 </div>
 </div>
@@ -195,7 +201,7 @@ first [
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Test</p>
-<p class="date">Created: 2016-02-20 Sat 21:55</p>
+<p class="date">Created: 2016-02-20 Sat 22:29</p>
 <p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 24.3.1 (<a href="http://orgmode.org">Org</a> mode 8.2.4)</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
