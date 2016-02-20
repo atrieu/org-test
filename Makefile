@@ -6,7 +6,7 @@ all: ~/.emacs.d/init.el $(OBJECTS)
 ~/.emacs.d/init.el:
 	mkdir ~/.emacs.d
 	echo "(require 'org)" >> ~/.emacs.d/init.el
-	echo "(require 'ox-html) >> ~/.emacs.d/init.el
+	echo "(require 'ox-html)" >> ~/.emacs.d/init.el
 	echo "(setq org-src-fontify-natively t)" >> ~/.emacs.d/init.el
 	echo "(setq org-html-htmlize-output-type 'css)" >> ~/.emacs.d/init.el
 	echo "(setq org-html-htmlize-font-prefix \"org-\")" >> ~/.emacs.d/init.el
