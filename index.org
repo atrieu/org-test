@@ -11,6 +11,10 @@
 * The Case tactic
   From Software Foundation, used to keep track of the ongoing case
 
+#+BEGIN_SRC perl :exports code
+print "foo\n";
+#+END_SRC
+
 #+BEGIN_SRC coq :exports code
   Require String. Open Scope string_scope.
 
